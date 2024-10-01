@@ -1,0 +1,14 @@
+# Use the official JDK 22 runtime as a parent image
+FROM openjdk:22-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the application JAR file to the container
+COPY target/BookService-0.0.1-SNAPSHOT.jar bookservice.jar
+
+# Expose port 8081 for the container
+EXPOSE 8081
+
+# Run the application
+ENTRYPOINT ["java", "-jar", "bookservice.jar"]
